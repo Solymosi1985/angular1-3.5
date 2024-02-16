@@ -1,0 +1,124 @@
+<div class="container">
+     <!--ngIf-->
+    <div class="row">
+        <div class="col col-md-2">
+            <button class="btn btn-info" (click)="onButtonClicked()">Bejelentkezem!</button>
+        </div>
+        <div class="col col-md-10">
+            <p>Psszt! Ez titok! Csak az láthatja, hogy a kedvenc édességem mi, aki bejelentkezett!</p>
+            <p *ngIf="isLoggedIn">Szia! A kedvenc édességem a {{favCandy}}.</p>
+        </div>
+    </div>
+     <!--ngIf else-->
+    <div class="row">
+        <div class="col col-md-2">
+            <button class="btn btn-info" (click)="onButtonClicked()">Bejelentkezem!</button>
+        </div>
+        <div class="col col-md-10">
+            <p *ngIf="isLoggedIn; else notloggedin">Szia! A kedvenc édességem a {{favCandy}}.</p>
+            <ng-template #notloggedin>
+                <p>Psszt! Ez titok! Csak az láthatja, hogy a kedvenc édességem mi, aki bejelentkezett!</p>
+            </ng-template>
+        </div>
+    </div>
+    <hr>
+    <!--ngFor-->
+    <div class="row">
+        <div class="col-10">
+            <input type="text" 
+                    class="form-control"
+                    [(ngModel)]="newCandy">
+            
+        </div>
+        <div class="col-2">
+            <button type="button" 
+                    class="btn btn-primary"
+                    (click)="onSaveNewCandy()">Ezt is szeretem!</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col" [ngSwitch]="favCandies.length">
+            <div class="alert alert-info" *ngSwitchCase="5">Csak ötöt szeretsz?</div>
+            <div class="alert alert-info" *ngSwitchCase="6">Jól van, hat édesség!</div>
+            <div class="alert alert-info" *ngSwitchCase="7">Szuper! Rendes Gombóc Artúr vagy!</div>
+            <div class="alert alert-warning" *ngSwitchDefault>Hű, mennyi kedvenc!</div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col">
+            <ul>
+                <li *ngFor="let candy of favCandies">{{candy}}</li>
+            </ul>
+        </div>
+    </div>
+    <!--ngFor indexszel-->
+    <div class="row">
+        <div class="col">
+            <ul>
+                <li *ngFor="let candy of favCandies let i=index">{{candy}} - {{i}}</li>
+            </ul>
+        </div>
+    </div>
+    <hr>
+    <!--ngStyle-->
+    <div class="row">
+        <div class="col">
+            <ul>
+                <li *ngFor="let candy of favCandies"
+                    [ngStyle]="{'text-decoration':'underline'}">{{candy}}</li>
+            </ul>
+        </div>
+    </div>
+    <!--ngStyle függvénnyel-->
+    <div class="row">
+        <div class="col">
+            <ul>
+                <li *ngFor="let candy of favCandies let i=index"
+                    [ngStyle]="{'text-decoration':decorMyCandy(i)}">{{candy}}</li>
+            </ul>
+        </div>
+    </div>
+
+    <!--ngClass-->
+    <div class="row">
+        <div class="col">
+            <ul>
+                <li *ngFor="let candy of favCandies"
+                    [ngClass]="{candy: favCandy===candy}">{{candy}}</li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2">
+            <button class="btn btn-warning" (click)="onFavCandyAdded()">Új kedvencem van!</button>
+        </div>
+        <div class="col-10">
+            <input type="text" 
+                    class="form-control"
+                    [(ngModel)]="favCandy">
+        </div>
+    </div>
+
+    <!--ngClass több osztályra-->
+    <div class="row">
+        <div class="col">
+            <ul>
+                <li *ngFor="let candy of favCandies"
+                    [ngClass]="{candy: favCandy===candy, enough:isEnough}">{{candy}}</li>
+            </ul>
+        </div>
+    </div>
+
+    <!--ngClass több osztállyal, amik egymást kizárják-->
+    <div class="row">
+        <div class="col">
+            <ul>
+                <li *ngFor="let candy of favCandies let i=index"
+                    [ngClass]="i==3 ? 'forth':'noForth'">{{candy}}</li>
+            </ul>
+        </div>
+    </div>
+    
+</div>

@@ -1,0 +1,17 @@
+.candy{
+    font-size: 26px;
+    color:darkcyan;
+}
+
+.noForth{
+    font-size: 26px;
+    color:rgb(90, 23, 177);
+}
+.forth{
+    font-size: 26px;
+    color:rgb(149, 177, 23);
+}
+
+.enough{
+    background-color: chocolate;
+}

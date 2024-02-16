@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-1 tamagotchi"
+            [ngClass]="{hungry:isHungry, sleepy:isSleepy, both:isHungry&&isSleepy, dead:dead}">
+            <div class="row my-4 justify-content-center">
+                <div class="col-4">
+                    <div class="eye"
+                        [ngClass]="{sleeping:deepSleeping}">
+                        <div class="eyeball"
+                        [ngClass]="{dead:dead}"
+                        *ngIf="!deepSleeping"></div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="eye"
+                    [ngClass]="{sleeping:deepSleeping}">
+                        <div class="eyeball"
+                        *ngIf="!deepSleeping"
+                        [ngClass]="{dead:dead}"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-8">
+                    
+                    <div class="mouth" [ngClass]="{dead:dead, sleepy:isSleepy}">
+                        <div *ngIf="isHungry" class="tongue" [ngClass]="{both:isSleepy}"></div>
+                    </div>
+                    
+                </div>
+            </div>   
+        </div>       
+    </div>
+    <div class="row my-2 justify-content-center">
+        <div class="col-3 d-flex justify-content-around">
+            <button type="button" 
+                    class="btn btn-info"
+                    (click)="onFeedMe()"
+                    [disabled]="deepSleeping || dead"
+                    >Etetés!</button>
+            <button type="button" 
+                    class="btn btn-danger"
+                    (click)="onStartGame()"
+                    *ngIf="dead">Újrakezdem!</button>
+            <button type="button" 
+                    class="btn btn-info"
+                    (click)="onGoToSleep()"
+                    [disabled]="deepSleeping || dead">Alvás!</button>
+
+        </div>   
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="alert alert-info" *ngIf="isHungry">Éhes vagyok!</div>
+            <div class="alert alert-info" *ngIf="isSleepy">Álmos vagyok!</div>
+        </div>
+    </div>
+</div>

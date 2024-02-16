@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+            <div class="row border" 
+                *ngFor="let animal of animals let i=index"
+                [ngStyle]="animal.isLoved && {'backgroundColor': 'lightgreen'}"
+                (click)="pickedOne(i)">
+                <div class="col">
+                    {{animal.name}}
+                </div>
+            </div>
+        </div>
+        <div class="col-8">
+            <app-animaldetails 
+            *ngIf="pickedElement"
+            [pickedAnimal]="pickedElement"
+            (isLovedChange)="onisLovedChange($event)"></app-animaldetails>
+        </div>       
+    </div>
+</div>

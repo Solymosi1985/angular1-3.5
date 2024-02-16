@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="row my-2">
+        <div class="col">
+            <h1>A legjobb barátom neve: {{bestFriend}}</h1>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col">
+            <!--event binding-->
+            <input type="text" 
+            class="form-control"
+            (input)="getNewFriend($event)">
+
+            <!--kétirányú adatkapcsolás-->
+            <input type="text" 
+            class="form-control"
+            [(ngModel)]="newFriend">
+
+            <!--property binding és event binding-->
+            <button class="btn btn-primary" 
+                    [disabled]="!allowNewFriend"
+                    (click)="addNewFriend()">
+                    Új barátom van!</button>
+        </div>
+    </div>
+    <div class="row my-2">
+        <!--string interpolation-->
+        <div class="col">
+            <label>A legújabb barátom neve: {{newFriend}}</label>
+            <br>
+            <label>Ennyi barátom van: {{howManyFriends}}</label>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col">
+            <ul>
+                <li 
+                [class]="myFriends[0][1]">
+                    {{myFriends[0][0]}} 
+                </li>
+                <li 
+                [class]="myFriends[1][1]">
+                    {{myFriends[1][0]}}
+                </li>
+                <li [class]="myFriends[2][1]">
+                    {{myFriends[2][0]}}
+                </li>
+            </ul>
+
+        </div>
+    </div>
+   
+</div>
+
+
+

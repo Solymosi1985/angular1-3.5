@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+        <div class="col d-flex justify-content-center">
+            <button type="button" 
+                    class="btn btn-success"
+                    (click)="plusOne()">Adj hozzá egyet!</button>
+        </div>  
+        
+        <div class="col d-flex justify-content-center">
+            <label [ngClass]="{poz:myNumber>0, neg:myNumber<0}" style="font-size:26px;">{{myNumber}}</label>
+        </div>
+
+        <div class="col d-flex justify-content-center">
+            <button type="button" 
+                    class="btn btn-danger"
+                    (click)="minusOne()">Vonj ki egyet!</button>
+
+        </div>
+    </div>
+    <div class="row" *ngIf="longEnough">
+        <div class="col">
+            <ul>
+                <li *ngFor="let element of buttonLog let i=index"
+                    [ngStyle]="{backgroundColor: colorMyElement(i)}">{{element}}</li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,97 @@
+.tamagotchi{
+    height:200px;
+    width:200px;
+    background-color: darkcyan;
+    border: 1px solid grey; 
+}
+
+.tamagotchi.sleepy{
+    background-color: darkblue;
+    border-color:darkslategrey;
+}
+
+.tamagotchi.hungry{
+    background-color: rgb(154, 161, 43);
+    border-color:rgb(205, 220, 220);
+    z-index:-1;
+}
+
+.tamagotchi.both{
+    background-color: rgb(104, 82, 54);
+    border-color:rgb(205, 220, 220);
+    z-index:1;
+}
+
+.tamagotchi.dead{
+    background-color: black;
+    border-color:white;
+}
+
+.mouth {
+    width: 100%;
+	height: 60px;
+	border: 10px solid black;
+    border-radius: 0 0 120px 120px / 0 0 200px 200px;
+	border-top: 0;
+}
+
+.mouth.sleepy{
+    border-radius: 100px;
+    border-top:10px solid black;
+    background-color:black;
+}
+
+.mouth.dead{
+    height:30px;
+    border: 10px solid white;
+    border-radius: 120px 120px 0 0 / 90px 90px 0 0;
+    border-bottom:0;
+}
+
+.tongue {
+    width:60px;
+    height: 30px;
+    background: #EE6055;
+    border-radius: 70px 70px 2px 2px;
+    position: relative;
+    top: 20px;
+    left: 14px;
+    z-index:-1;
+}
+
+.tongue.both{
+    height: 25px;
+    top:15px;
+    border-radius: 40% 40% 3% 3%;
+    z-index:1;
+}
+
+.eye{
+    width: 100%;
+	height: 60px;
+	background: white;
+    border: 1px solid black;
+	border-radius: 100px/160px;
+}
+
+.eye.sleeping{
+    background:none;
+    border:0;
+    border-bottom:10px solid black;
+    border-radius: 0 0 120px 120px / 0 0 150px 150px;   
+}
+
+.eyeball{
+    width:80%;
+    height:60%;
+    background-color: black;
+    border-radius:50%;
+    position:relative;
+    top: 42%;
+    left: 10%;
+}
+
+.eyeball.dead{
+    height:20%;
+    border-radius:5%;
+}
